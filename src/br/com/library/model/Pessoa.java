@@ -5,7 +5,10 @@
  */
 package br.com.library.model;
 
+import br.com.library.comumEnum.Sexo;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -25,24 +28,32 @@ public class Pessoa {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
+    @Enumerated
+    private Sexo sexo;
+    
+    private boolean status;
     private String nome;
     private int idade;
-    private boolean sexo;
-    
-    @OneToOne
+  
+            
+            
+    @OneToOne(cascade = CascadeType.ALL)
     private Endereco enredeco; 
     
     public Pessoa(){
         
     }
 
-    public Pessoa(String nome, int idade, boolean sexo, Endereco enredeco) {
+    public Pessoa(Sexo sexo, boolean status, String nome, int idade, Endereco enredeco) {
+        this.sexo = sexo;
+        this.status = status;
         this.nome = nome;
         this.idade = idade;
-        this.sexo = sexo;
         this.enredeco = enredeco;
     }
-        
+
+    
+   
     
     public Long getId() {
         return id;
@@ -68,11 +79,11 @@ public class Pessoa {
         this.idade = idade;
     }
 
-    public boolean isSexo() {
+    public Sexo getSexo() {
         return sexo;
     }
 
-    public void setSexo(boolean sexo) {
+    public void setSexo(Sexo sexo) {
         this.sexo = sexo;
     }
 

@@ -5,6 +5,8 @@
  */
 package br.com.library.model;
 
+import br.com.library.comumEnum.Sexo;
+import java.util.Date;
 import javax.persistence.Entity;
 
 /**
@@ -13,20 +15,21 @@ import javax.persistence.Entity;
  */
 @Entity
 public class Cliente extends Pessoa{
-    private int dataCadastro;
+    private Date dataCadastro;
 
-    public Cliente(String nome ,int idade, boolean sexo, Endereco end , int dataCadastro) {
-        super(nome , idade , sexo, end);
+    public Cliente(Sexo sexo, boolean status, String nome, int idade, Endereco end , Date dataCadastro) {
+        super(sexo, status ,nome , idade , end);
         this.dataCadastro = dataCadastro;
     }
-    
-    public int getDataCadastro() {
+
+    public Date getDataCadastro() {
         return dataCadastro;
     }
 
-    public void setDataCadastro(int dataCadastro) {
+    public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
+    
 
     @Override
     public String toString() {

@@ -5,6 +5,7 @@
  */
 package br.com.library.model;
 
+import br.com.library.comumEnum.Sexo;
 import javax.persistence.Entity;
 
 /**
@@ -18,8 +19,8 @@ public class Funcionario extends Pessoa{
     private int salario;
     private int dataAdmicao;
 
-    public Funcionario(String nome, int idade, boolean sexo, Endereco end,String cargo, int salario, int dataAdmicao) {
-        super (nome, idade, sexo, end);
+    public Funcionario(Sexo sexo, boolean status, String nome, int idade, Endereco end, String cargo,int salario, int dataAdmicao ) {
+        super (sexo,status, nome,idade,end);
         this.cargo = cargo;
         this.salario = salario;
         this.dataAdmicao = dataAdmicao;
