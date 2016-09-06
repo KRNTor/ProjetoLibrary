@@ -18,6 +18,7 @@ public class StringUtil {
     public static final String KEY_MSG_ERRO_DELETAR = "msg_erro_deletar";
     public static final String KEY_MSG_ERRO_EDITAR = "msg_erro_editar";
     public static final String KEY_MSG_ERRO_BUSCAR = "msg_erro_buscar";
+    public static final String KEY_MSG_ERRO_BUSCAR_NOME = "msg_erro_buscar_nome";
     public static final String KEY_MSG_ERRO_LISTAR = "msg_erro_listar";
 
     private static final ResourceBundle bundle = ResourceBundle.getBundle(FILE_NAME);

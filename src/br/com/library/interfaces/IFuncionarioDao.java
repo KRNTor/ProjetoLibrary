@@ -21,5 +21,7 @@ public interface IFuncionarioDao {
 
     public Funcionario buscarFuncionario(long id) throws Exception;
     
+    public Funcionario buscarFuncionarioNome(String nome) throws Exception;
+    
     public List<Funcionario> listaFuncionario() throws Exception;
 }

@@ -3,6 +3,7 @@ package br.com.library.dao;
 
 import br.com.library.interfaces.IClienteDao;
 import br.com.library.model.Cliente;
+import br.com.library.model.Livro;
 import br.com.library.util.JPAUtil;
 import br.com.library.util.StringUtil;
 import java.util.List;
@@ -166,6 +167,22 @@ public class ClienteDAO implements IClienteDao{
         }
         
         return lista;
+    }
+
+    @Override
+    public Cliente buscarClienteNome(String nome) throws Exception {
+          EntityManager em = null;
+      
+          try {
+                   
+            em = JPAUtil.getEntityManager();
+            Query query = em.createQuery("SELECT c FROM Cliente c WHERE c.nome = :nome");
+            query.setParameter("nome", nome);
+            return (Cliente) query.getSingleResult();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
     }
 
    

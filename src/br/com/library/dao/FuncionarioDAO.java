@@ -135,11 +135,9 @@ public class FuncionarioDAO implements IFuncionarioDao {
             em = JPAUtil.getEntityManager();
 
             Query query = (Query) em.createQuery("SELECT f FROM Funcionario f");
-
-            // retorna todos os registros da entidade																// Contato
+															// Contato
             lista = ((javax.persistence.Query) query).getResultList();
 
-            // retorna a lista resultante da QueryQuery
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception(StringUtil.getStringValue(StringUtil.KEY_MSG_ERRO_LISTAR));
@@ -151,6 +149,19 @@ public class FuncionarioDAO implements IFuncionarioDao {
         }
 
         return lista;
+    }
+
+    @Override
+    public Funcionario buscarFuncionarioNome(String nome) throws Exception {
+        EntityManager em = null;
+        try {
+            em = JPAUtil.getEntityManager();
+            Query query = em.createQuery("SELECT f FROM Funcionaio f WHERE f.nome = :nome");
+            query.setParameter("nome", nome);
+            return (Funcionario) query.getSingleResult();
+        } catch (Exception ex) {
+            ex.printStackTrace();        }
+        return null;
     }
 
 }

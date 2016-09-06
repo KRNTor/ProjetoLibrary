@@ -21,27 +21,25 @@ import javax.persistence.OneToOne;
  * @author Otto
  */
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED) 
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Pessoa {
-       
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @Enumerated
     private Sexo sexo;
-    
+
     private boolean status;
     private String nome;
     private int idade;
-  
-            
-            
+
     @OneToOne(cascade = CascadeType.ALL)
-    private Endereco enredeco; 
-    
-    public Pessoa(){
-        
+    private Endereco enredeco;
+
+    public Pessoa() {
+
     }
 
     public Pessoa(Sexo sexo, boolean status, String nome, int idade, Endereco enredeco) {
@@ -52,9 +50,6 @@ public class Pessoa {
         this.enredeco = enredeco;
     }
 
-    
-   
-    
     public Long getId() {
         return id;
     }
@@ -99,5 +94,5 @@ public class Pessoa {
     public String toString() {
         return "Pessoa{" + "nome=" + nome + ", idade=" + idade + ", sexo=" + sexo + ", enredeco=" + enredeco + '}';
     }
-    
+
 }
