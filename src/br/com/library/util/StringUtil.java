@@ -12,7 +12,7 @@ import java.util.ResourceBundle;
  * @author Otto
  */
 public class StringUtil {
-    private static final String FILE_NAME = "Strings";
+    private static final String FILE_NAME = "conf";
 
     public static final String KEY_MSG_ERRO_CADASTRAR = "msg_erro_cadastrar";
     public static final String KEY_MSG_ERRO_DELETAR = "msg_erro_deletar";

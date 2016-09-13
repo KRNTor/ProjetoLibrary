@@ -26,6 +26,20 @@ public class Livro {
     private Categoria categoria;
     private boolean status;
 
+    public Livro() {
+    }
+
+    
+    public Livro(int ano, String titulo, String autor, String editora, Categoria categoria, boolean status) {
+        this.ano = ano;
+        this.titulo = titulo;
+        this.autor = autor;
+        this.editora = editora;
+        this.categoria = categoria;
+        this.status = status;
+    }
+
+    
     public long getId() {
         return id;
     }

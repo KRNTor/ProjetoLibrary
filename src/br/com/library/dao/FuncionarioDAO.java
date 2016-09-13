@@ -160,7 +160,8 @@ public class FuncionarioDAO implements IFuncionarioDao {
             query.setParameter("nome", nome);
             return (Funcionario) query.getSingleResult();
         } catch (Exception ex) {
-            ex.printStackTrace();        }
+            ex.printStackTrace();       
+        }
         return null;
     }
 

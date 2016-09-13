@@ -17,6 +17,10 @@ import javax.persistence.Entity;
 public class Cliente extends Pessoa{
     private Date dataCadastro;
 
+    public Cliente() {
+        
+    }
+    
     public Cliente(Sexo sexo, boolean status, String nome, int idade, Endereco end , Date dataCadastro) {
         super(sexo, status ,nome , idade , end);
         this.dataCadastro = dataCadastro;
@@ -29,12 +33,15 @@ public class Cliente extends Pessoa{
     public void setDataCadastro(Date dataCadastro) {
         this.dataCadastro = dataCadastro;
     }
-    
 
     @Override
     public String toString() {
         return "Cliente{" + "dataCadastro=" + dataCadastro + '}';
     }
+    
+
+   
+   
     
     
     

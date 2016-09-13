@@ -8,6 +8,7 @@ package br.com.library.dao;
 import br.com.library.interfaces.ILivroDao;
 import br.com.library.model.Livro;
 import br.com.library.util.JPAUtil;
+import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
@@ -48,7 +49,7 @@ public class LivroDao implements ILivroDao {
     }
 
     @Override
-    public Livro buscarById(Long id) throws Exception {//DONE
+    public Livro buscarById(long id) throws Exception {//DONE
         try {
             em = JPAUtil.getEntityManager();
             Query query = em.createQuery("SELECT l FROM Livro l WHERE l.id = :id");
@@ -62,6 +63,7 @@ public class LivroDao implements ILivroDao {
 
     @Override
     public void editar(Livro livro) throws Exception {//DONE
+
         try {
             em = JPAUtil.getEntityManager();
             em.getTransaction().begin();
@@ -96,4 +98,21 @@ public class LivroDao implements ILivroDao {
         }
     }
 
+    @Override
+    public List<Livro> listarAll() throws Exception {
+        List<Livro> lista = null;
+ 
+        try {
+
+            em = JPAUtil.getEntityManager();
+            Query query = em.createQuery("SELECT l FROM Livro l");
+            lista = query.getResultList();
+            JPAUtil.close();
+            return lista;
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        return null;
+    }
 }

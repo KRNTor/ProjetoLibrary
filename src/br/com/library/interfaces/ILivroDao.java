@@ -6,6 +6,7 @@
 package br.com.library.interfaces;
 
 import br.com.library.model.Livro;
+import java.util.List;
 
 /**
  *
@@ -17,10 +18,12 @@ public interface ILivroDao {
     
     public Livro buscar(String titulo) throws Exception;
     
-    public Livro buscarById(Long id) throws Exception;
+    public Livro buscarById(long id) throws Exception;
     
     public void editar(Livro livro) throws Exception;
     
     public void remover(Livro livro) throws Exception;
+    
+    public List<Livro> listarAll() throws Exception;
     
 }

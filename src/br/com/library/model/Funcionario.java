@@ -19,6 +19,10 @@ public class Funcionario extends Pessoa{
     private int salario;
     private int dataAdmicao;
 
+    public Funcionario() {
+    }
+
+    
     public Funcionario(Sexo sexo, boolean status, String nome, int idade, Endereco end, String cargo,int salario, int dataAdmicao ) {
         super (sexo,status, nome,idade,end);
         this.cargo = cargo;

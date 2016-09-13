@@ -22,7 +22,7 @@ public interface IClienteDao {
 
     public Cliente buscarCliente(long id) throws Exception;
     
-    public List<Cliente> listaConta() throws Exception;
+    public List<Cliente> listarCliente() throws Exception;
     
     public Cliente buscarClienteNome(String nome) throws Exception;
     
