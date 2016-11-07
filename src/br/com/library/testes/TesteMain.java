@@ -25,36 +25,32 @@ public class TesteMain {
 
     public static void main(String[] a) throws Exception {
 
-        
 //        Livro l = new Livro(2016, "prefiro jdbc", "wanderson", "é nois", Categoria.AVENTURA, true);
 //        LivroDao ld = new LivroDao();
-        
         //ld.salvar(l);
 //        Livro guardarLivro = ld.buscarById(8);
 //        guardarLivro.setTitulo("Mocoronha");
 //        ld.editar(guardarLivro);
 //        System.out.println(ld.listarAll());
-        
-        
 //        Endereco end = new Endereco("flores", "margarida", "123454", "paraiba");
 //        Cliente c = new Cliente(Sexo.SEXOF, true, "Otto", 21, end, new Date(21/04/2016));
-//        ClienteDAO cd = new ClienteDAO();
+//          ClienteDAO cd = new ClienteDAO();
+//          System.out.println(cd.buscarClienteCriteria());
 //            
 //        cd.cadastrarCliente(c);
 //        Cliente guardar = cd.buscarCliente(3);
 //        guardar.setNome("wanderson");
 //        cd.editarCliente(guardar);
 
-          Endereco end = new Endereco("flores", "margarida", "123454", "paraiba");
-        Funcionario f = new Funcionario(Sexo.SEXOM, true, "rivaldo", 20, end, "Jogador", 250, 21);
+//        Endereco end = new Endereco("flores", "margarida", "123454", "paraiba");
+//        Funcionario f = new Funcionario(Sexo.SEXOM, true, "rivaldo", 20, end, "Jogador", 250, 21);
         FuncionarioDAO fd = new FuncionarioDAO();
-            
-      //  fd.cadastrarFuncionario(f);
-        Funcionario guardarf = fd.buscarFuncionario(6);
-        guardarf.setNome("galvao");
-        fd.editarFuncionario(guardarf);
-        }       
+        System.out.println(fd.listaFuncionarioNameQuared());
+        //  fd.cadastrarFuncionario(f);
+//        Funcionario guardarf = fd.buscarFuncionario(6);
+//        guardarf.setNome("galvao");
+//        fd.editarFuncionario(guardarf);
+
+          
     }
-       
-
-
+}

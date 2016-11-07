@@ -8,6 +8,11 @@ import br.com.library.util.StringUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Root;
+import org.hibernate.Criteria;
 
 
 /*
@@ -165,6 +170,23 @@ public class ClienteDAO implements IClienteDao {
         }
 
         return lista;
+    }
+
+    @Override
+    public List<Cliente> buscarClienteCriteria() throws Exception {
+        EntityManager em = null;
+        List<Cliente> lista = null;
+        try {
+            CriteriaBuilder cb = em.getCriteriaBuilder();
+            CriteriaQuery<Cliente> cq = cb.createQuery(Cliente.class);
+            Root<Cliente> root = cq.from(Cliente.class);
+            cq.select(root);
+            TypedQuery<Cliente> query = em.createQuery(cq);
+            return query.getResultList();
+        } catch (Exception e) {
+        }
+        
+       return null;
     }
 
 }

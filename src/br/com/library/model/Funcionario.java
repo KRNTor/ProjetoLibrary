@@ -7,11 +7,14 @@ package br.com.library.model;
 
 import br.com.library.comumEnum.Sexo;
 import javax.persistence.Entity;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 
 /**
  *
  * @author Otto
  */
+@NamedQuery(name = "Funcionario.findAll", query = "SELECT f FROM Funcionario f")
 @Entity
 public class Funcionario extends Pessoa{
     

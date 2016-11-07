@@ -24,4 +24,8 @@ public interface IFuncionarioDao {
     public Funcionario buscarFuncionarioNome(String nome) throws Exception;
     
     public List<Funcionario> listaFuncionario() throws Exception;
+    
+    public List<Funcionario> listaFuncionarioNameQuared() throws Exception;    
+    
+    
 }
