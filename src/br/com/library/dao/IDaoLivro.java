@@ -5,8 +5,10 @@
  */
 package br.com.library.dao;
 
+
 import br.com.library.model.Livro;
 import java.util.List;
+import org.hibernate.Criteria;
 
 /**
  *
@@ -25,5 +27,13 @@ public interface IDaoLivro {
     public void remover(Livro livro) throws Exception;
     
     public List<Livro> listarAll() throws Exception;
+    
+    public List<Livro> listarNamed() throws Exception;
+    
+    public Livro buscarNamed (String autor) throws Exception;
+    
+   List<Livro> getAllCriteria() throws Exception;
+
+   Criteria getCriteria() throws Exception;
     
 }

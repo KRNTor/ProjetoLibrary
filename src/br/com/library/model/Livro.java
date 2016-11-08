@@ -13,6 +13,7 @@ import javax.persistence.*;
  * @author Felps
  */
 @Entity
+@NamedQuery(name = "Livro.buscarAutor", query = "SELECT l FROM Livro l WHERE l.autor = :autor")
 public class Livro {
 
     @Id

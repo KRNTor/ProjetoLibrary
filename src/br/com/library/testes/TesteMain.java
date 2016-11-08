@@ -5,8 +5,15 @@
  */
 package br.com.library.testes;
 
+import br.com.library.comumEnum.Categoria;
+import br.com.library.comumEnum.Sexo;
 import br.com.library.dao.DaoCliente;
 import br.com.library.dao.DaoFuncionario;
+import br.com.library.dao.DaoLivro;
+import br.com.library.model.Cliente;
+import br.com.library.model.Endereco;
+import br.com.library.model.Livro;
+import java.util.Date;
 
 /**
  *
@@ -15,6 +22,14 @@ import br.com.library.dao.DaoFuncionario;
 public class TesteMain {
 
     public static void main(String[] a) throws Exception {
-        System.out.println("lista " + new DaoCliente().getAllCriteria());
+//        Endereco end = new Endereco("s", "s","s" , "s", "s");
+//        Cliente c = new Cliente(Sexo.SEXOM, true, "otto", 10, end, new Date("21/04/1995"));
+        DaoCliente cd = new DaoCliente();
+//        cd. cadastrarCliente(c);
+        
+//Livro l = new Livro(200, "s", "s", "s", Categoria.AVENTURA, true);
+        DaoLivro dl= new DaoLivro();
+        //dl.salvar(l);
+        System.out.println("lista " +dl.buscarNamed("s"));
     }
 }

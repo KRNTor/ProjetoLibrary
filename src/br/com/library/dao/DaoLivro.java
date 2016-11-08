@@ -7,9 +7,12 @@ package br.com.library.dao;
 
 import br.com.library.model.Livro;
 import br.com.library.util.JPAUtil;
+import br.com.library.util.StringUtil;
 import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
+import org.hibernate.Criteria;
+import org.hibernate.Session;
 
 /**
  *
@@ -18,6 +21,8 @@ import javax.persistence.Query;
 public class DaoLivro implements IDaoLivro {
 
     private EntityManager em;
+    private Class clazz;
+    private Session session;
 
     @Override
     public void salvar(Livro livro) throws Exception {//DONE
@@ -100,7 +105,7 @@ public class DaoLivro implements IDaoLivro {
     @Override
     public List<Livro> listarAll() throws Exception {
         List<Livro> lista = null;
- 
+
         try {
 
             em = JPAUtil.getEntityManager();
@@ -108,10 +113,58 @@ public class DaoLivro implements IDaoLivro {
             lista = query.getResultList();
             JPAUtil.close();
             return lista;
-            
+
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         return null;
+    }
+
+    @Override
+    public List<Livro> getAllCriteria() throws Exception {
+        List<Livro> resultado = null;
+        try {
+            Criteria crit = getCriteria();
+            return crit.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("");
+        }
+    }
+
+    @Override
+    public Criteria getCriteria() throws Exception {
+        em = JPAUtil.getEntityManager();
+        session = ((Session) em.getDelegate());
+        return session.createCriteria(Livro.class);
+    }
+
+    @Override
+    public List<Livro> listarNamed() throws Exception {
+        try {
+            em = JPAUtil.getEntityManager();
+            Query query = em.createNamedQuery("Livro.listarTudo");
+            return query.getResultList();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception(StringUtil.getStringValue(StringUtil.KEY_MSG_ERRO_LISTAR));
+        } finally {
+            JPAUtil.close();
+        }
+    }
+
+    @Override
+    public Livro buscarNamed(String autor) throws Exception {
+       try {
+            em = JPAUtil.getEntityManager();
+            Query query = em.createNamedQuery("Livro.buscarAutor");                    
+                    return (Livro) query.setParameter("autor", autor).getSingleResult();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception(StringUtil.getStringValue(StringUtil.KEY_MSG_ERRO_LISTAR));
+        } finally {
+            JPAUtil.close();
+        }
     }
 }
