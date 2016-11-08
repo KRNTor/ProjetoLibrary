@@ -15,6 +15,7 @@ import javax.persistence.Id;
  */
 @Entity
 public class Endereco {
+
     @Id
     @GeneratedValue
     private long idEndereco;
@@ -22,16 +23,17 @@ public class Endereco {
     private String bairro;
     private String cep;
     private String estado;
+    private String cidade;
 
     public Endereco() {
     }
 
-    
-    public Endereco(String rua, String bairro, String cep, String estado) {
+    public Endereco(String rua, String bairro, String cep, String estado, String cidade) {
         this.rua = rua;
         this.bairro = bairro;
         this.cep = cep;
         this.estado = estado;
+        this.cidade = cidade;
     }
 
     public long getIdEndereco() {
@@ -74,11 +76,18 @@ public class Endereco {
         this.estado = estado;
     }
 
+    public String getCidade() {
+        return cidade;
+    }
+
+    public void setCidade(String cidade) {
+        this.cidade = cidade;
+    }
+
     @Override
     public String toString() {
-        return "Endereco{" + "rua=" + rua + ", bairro=" + bairro + ", cep=" + cep + ", estado=" + estado + '}';
+        return "Endereco{" + "idEndereco=" + idEndereco + ", rua=" + rua + ", bairro=" + bairro + ", cep=" + cep + ", estado=" + estado + ", cidade=" + cidade + '}';
     }
-    
-    
-    
+
+
 }

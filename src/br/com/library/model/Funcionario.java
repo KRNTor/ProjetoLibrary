@@ -6,34 +6,36 @@
 package br.com.library.model;
 
 import br.com.library.comumEnum.Sexo;
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 /**
  *
  * @author Otto
  */
-@NamedQuery(name = "Funcionario.findAll", query = "SELECT f FROM Funcionario f")
 @Entity
-public class Funcionario extends Pessoa{
-    
+@NamedQuery(name = "Funcionario.listarAll", query = "select f from Funcionario f")
+public class Funcionario extends Pessoa {
+
     private String cargo;
     private int salario;
-    private int dataAdmicao;
+    @Temporal(TemporalType.DATE)
+    private Date dataAdmicao;
 
     public Funcionario() {
     }
 
-    
-    public Funcionario(Sexo sexo, boolean status, String nome, int idade, Endereco end, String cargo,int salario, int dataAdmicao ) {
-        super (sexo,status, nome,idade,end);
+    public Funcionario(Sexo sexo, boolean status, String nome, int idade, Endereco end, String cargo, int salario, Date dataAdmicao) {
+        super(sexo, status, nome, idade, end);
         this.cargo = cargo;
         this.salario = salario;
         this.dataAdmicao = dataAdmicao;
     }
 
-    
     public String getCargo() {
         return cargo;
     }
@@ -50,11 +52,11 @@ public class Funcionario extends Pessoa{
         this.salario = salario;
     }
 
-    public int getDataAdmicao() {
+    public Date getDataAdmicao() {
         return dataAdmicao;
     }
 
-    public void setDataAdmicao(int dataAdmicao) {
+    public void setDataAdmicao(Date dataAdmicao) {
         this.dataAdmicao = dataAdmicao;
     }
 
@@ -62,7 +64,5 @@ public class Funcionario extends Pessoa{
     public String toString() {
         return "Funcionario{" + "cargo=" + cargo + ", salario=" + salario + ", dataAdmicao=" + dataAdmicao + '}';
     }
-    
-    
-    
+
 }

@@ -1,6 +1,5 @@
 package br.com.library.dao;
 
-import br.com.library.interfaces.IFuncionarioDao;
 import br.com.library.model.Funcionario;
 import br.com.library.util.JPAUtil;
 import br.com.library.util.StringUtil;
@@ -17,7 +16,7 @@ import javax.persistence.Query;
  *
  * @author Otto
  */
-public class FuncionarioDAO implements IFuncionarioDao {
+public class DaoFuncionario implements IDaoFuncionario {
 
     @Override
     public void cadastrarFuncionario(Funcionario f) throws Exception {
@@ -127,28 +126,17 @@ public class FuncionarioDAO implements IFuncionarioDao {
 
     @Override
     public List<Funcionario> listaFuncionario() throws Exception {
-        List<Funcionario> lista = null;
         EntityManager em = null;
-
         try {
-
             em = JPAUtil.getEntityManager();
-
             Query query = (Query) em.createQuery("SELECT f FROM Funcionario f");
-            // Contato
-            lista = ((javax.persistence.Query) query).getResultList();
-
+            return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
             throw new Exception(StringUtil.getStringValue(StringUtil.KEY_MSG_ERRO_LISTAR));
-
         } finally {
-
             JPAUtil.close();
-
         }
-
-        return lista;
     }
 
     @Override
@@ -167,16 +155,16 @@ public class FuncionarioDAO implements IFuncionarioDao {
 
     @Override
     public List<Funcionario> listaFuncionarioNameQuared() throws Exception {
-        List<Funcionario> f = null;
-         EntityManager em = null;
+        EntityManager em = null;
         try {
-            f =  em.createNamedQuery("Funcionario.findAll")
-                 .getResultList();
+            em = JPAUtil.getEntityManager();
+            Query query = em.createNamedQuery("Funcionario.listarAll");
+            return query.getResultList();
         } catch (Exception e) {
             e.printStackTrace();
+        } finally {
+            JPAUtil.close();
         }
-        return f;
+        return null;
     }
 }
-
-

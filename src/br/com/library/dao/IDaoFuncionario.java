@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.library.interfaces;
+package br.com.library.dao;
 
 import br.com.library.model.Funcionario;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Otto
  */
-public interface IFuncionarioDao {
+public interface IDaoFuncionario {
     public void cadastrarFuncionario(Funcionario f) throws Exception;
 
     public void deletarFuncionario(Funcionario f) throws Exception;

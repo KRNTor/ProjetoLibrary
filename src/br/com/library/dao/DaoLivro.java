@@ -5,7 +5,6 @@
  */
 package br.com.library.dao;
 
-import br.com.library.interfaces.ILivroDao;
 import br.com.library.model.Livro;
 import br.com.library.util.JPAUtil;
 import java.util.List;
@@ -16,7 +15,7 @@ import javax.persistence.Query;
  *
  * @author Felps
  */
-public class LivroDao implements ILivroDao {
+public class DaoLivro implements IDaoLivro {
 
     private EntityManager em;
 

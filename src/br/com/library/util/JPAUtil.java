@@ -15,13 +15,13 @@ import javax.persistence.Persistence;
  */
 public class JPAUtil {
 
-    private static final EntityManagerFactory fac = Persistence.createEntityManagerFactory("LibraryPU");
+    private static final EntityManagerFactory FAC = Persistence.createEntityManagerFactory("LibraryPU");
     private static EntityManager em;
 
     public static EntityManager getEntityManager() {
         try {
             if (em == null || !em.isOpen()) {
-                em = fac.createEntityManager();
+                em = FAC.createEntityManager();
             }
             return em;
         } catch (Exception ex) {

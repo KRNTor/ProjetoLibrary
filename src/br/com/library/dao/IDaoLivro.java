@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.com.library.interfaces;
+package br.com.library.dao;
 
 import br.com.library.model.Livro;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
  *
  * @author Felps
  */
-public interface ILivroDao {
+public interface IDaoLivro {
     
     public void salvar(Livro livro) throws Exception;
     
