@@ -13,6 +13,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Restrictions;
 
 /**
  *
@@ -121,10 +122,11 @@ public class DaoLivro implements IDaoLivro {
     }
 
     @Override
-    public List<Livro> getAllCriteria() throws Exception {
+    public List<Livro> getCriteriaAutor(String autor) throws Exception {
         List<Livro> resultado = null;
         try {
             Criteria crit = getCriteria();
+            crit.add(Restrictions.isNotNull("autor"));
             return crit.list();
         } catch (Exception e) {
             e.printStackTrace();

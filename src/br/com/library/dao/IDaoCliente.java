@@ -26,6 +26,8 @@ public interface IDaoCliente {
     List<Cliente> listarCliente() throws Exception;
 
     Cliente buscarClienteNome(String nome) throws Exception;
+    
+    List<Cliente> buscarClienteCriteriaNome(String nome) throws Exception;
 
     List<Cliente> getAllCriteria() throws Exception;
 

@@ -30,6 +30,11 @@ public class TesteMain {
 //Livro l = new Livro(200, "s", "s", "s", Categoria.AVENTURA, true);
         DaoLivro dl= new DaoLivro();
         //dl.salvar(l);
-        System.out.println("lista " +dl.buscarNamed("s"));
+//        System.out.println("lista " +dl.buscarNamed("s"));//namedquery
+//        System.out.println("listar " +cd.buscarClienteNome("otto")); //jpql
+          System.out.println("listar " + cd.buscarClienteCriteriaNome("otto"));
+          System.out.println("listar " + dl.getCriteriaAutor("s"));
+//        System.out.println("listar" + cd.getAllCriteria());
+//        System.out.println("listar " + dl.getAllCriteria());
     }
 }

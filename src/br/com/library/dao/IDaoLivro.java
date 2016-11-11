@@ -32,7 +32,7 @@ public interface IDaoLivro {
     
     public Livro buscarNamed (String autor) throws Exception;
     
-   List<Livro> getAllCriteria() throws Exception;
+   List<Livro> getCriteriaAutor(String outor) throws Exception;
 
    Criteria getCriteria() throws Exception;
     

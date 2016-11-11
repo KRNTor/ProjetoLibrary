@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Restrictions;
 
 
 /*
@@ -137,6 +138,18 @@ public class DaoCliente implements IDaoCliente {
         em = JPAUtil.getEntityManager();
         session = ((Session) em.getDelegate());
         return session.createCriteria(Cliente.class);
+    }
+
+    @Override
+    public List<Cliente> buscarClienteCriteriaNome(String nome) throws Exception {
+         try {
+            Criteria crit = getCriteria();
+            crit.add(Restrictions.isNotNull("nome"));
+            return crit.list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new Exception("");
+        }
     }
 
 }
