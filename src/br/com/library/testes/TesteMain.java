@@ -34,7 +34,7 @@ public class TesteMain {
 //        System.out.println("listar " +cd.buscarClienteNome("otto")); //jpql
           System.out.println("listar " + cd.buscarClienteCriteriaNome("otto"));
           System.out.println("listar " + dl.getCriteriaAutor("s"));
-//        System.out.println("listar" + cd.getAllCriteria());
-//        System.out.println("listar " + dl.getAllCriteria());
+          System.out.println("listar " + dl.buscarNamed("s"));
+//       
     }
 }
